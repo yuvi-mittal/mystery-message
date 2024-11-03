@@ -1,13 +1,13 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-export interface Message extends Document {
+export interface Message extends Document {  //extends Document connects these interfaces to MongoDB’s document structure.
   content: string;
   createdAt: Date;
 }
 
 const MessageSchema: Schema<Message> = new mongoose.Schema({
   content: {
-    type: String,
+    type: String,  //mongoose has it in capital 
     required: true,
   },
   createdAt: {
@@ -40,7 +40,7 @@ const UserSchema: Schema<User> = new mongoose.Schema({
     type: String,
     required: [true, 'Email is required'],
     unique: true,
-    match: [/.+\@.+\..+/, 'Please use a valid email address'],
+    match: [/.+\@.+\..+/, 'Please use a valid email address'], //regexr
   },
   password: {
     type: String,
